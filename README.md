@@ -1,81 +1,13 @@
-# 'blank' contract
+The issue:
+- UserInShard0 calls ScInShard1 with a token
+  - ScInShard1 calls a dummy endpoint of ScInShard0
+  - In its callback, ScInShard1 sends back a token to UserInShard0
+- At the moment `/simulator/generate-blocks-until-transaction-processed` stops generating blocks, UserInShard0 still has not received the token back, and we need to generate manually 6 more blocks in order for him to receive the token.
 
-An empty contract that comes fully set up with tests and blockchain interactions.
-
-To create a copy of the 'blank' contract on your computer:
-
-```
-xsuite new --dir my-contract
-cd my-contract
-```
-
-Note that `xsuite` and Rust must be installed on your computer. To install, run:
+# How to reproduce
 
 ```
-npm install -g xsuite
-xsuite install-rust
-```
-
-## Build contract
-
-Write the contract logic in `src/lib.rs`. Then build the contract with:
-
-```
+npm install
 npm run build
-```
-
-## Test contract
-
-Write the tests in `tests/contract.test.ts`. Then test the contract with:
-
-```
 npm run test
-```
-
-## Interact with contract
-
-Write the interactions in `interact/index.ts`. Then interact with:
-
-- On devnet:
-
-  ```
-  npm run interact:devnet [command]
-  ```
-
-- On testnet:
-
-  ```
-  npm run interact:testnet [command]
-  ```
-
-- On mainnet:
-
-  ```
-  npm run interact:mainnet [command]
-  ```
-
-To list all available commands:
-
-```
-npm run interact:devnet --help
-```
-
-For example, if you want to deploy the contract on devnet:
-
-```
-npm run interact:devnet deploy
-```
-
-## Wallet & Funding
-
-To create a new keystore wallet at path `wallet.json`:
-
-```
-xsuite new-wallet --wallet wallet.json
-```
-
-To fund this wallet with 30 xEGLD:
-
-```
-xsuite request-xegld --wallet wallet.json
 ```

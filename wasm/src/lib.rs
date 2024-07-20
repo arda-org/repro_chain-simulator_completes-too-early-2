@@ -6,9 +6,10 @@
 
 // Init:                                 1
 // Upgrade:                              1
-// Endpoints:                            0
+// Endpoints:                            2
 // Async Callback (empty):               1
-// Total number of exported functions:   3
+// Promise callbacks:                    1
+// Total number of exported functions:   6
 
 #![no_std]
 
@@ -20,6 +21,9 @@ multiversx_sc_wasm_adapter::endpoints! {
     (
         init => init
         upgrade => upgrade
+        remote => remote
+        dummy => dummy
+        remote_callback => remote_callback
     )
 }
 
