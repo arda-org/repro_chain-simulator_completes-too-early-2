@@ -1,3 +1,5 @@
+FIXED ✅
+
 The issue:
 - UserInShard0 calls ScInShard1 with a token
   - ScInShard1 calls a dummy endpoint of ScInShard0
