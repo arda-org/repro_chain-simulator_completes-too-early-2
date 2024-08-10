@@ -34,8 +34,6 @@ test("Test", async () => {
     esdts: [{ id: "ABC-123456", amount: 1 }],
     gasLimit: 50_000_000,
   });
-  // working with this line:
-  // await world.generateBlocks(6);
 
   expect(d.kvs().from(await userShard0.getAccountKvs())).toEqual({
     esdts: [{ id: "ABC-123456", amount: 1n }],
